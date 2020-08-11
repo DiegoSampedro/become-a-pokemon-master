@@ -21,7 +21,7 @@ class Pokemon:
         else: 
             print("${self.name} has lost ${points} of health!!. It now has {health} health".format(name = self.name, health = self.health))
 
-    def gain_health(points):
+    def gain_health(self, points):
         if self.health == 0:
             self.revive()
         self.health += points
@@ -30,14 +30,14 @@ class Pokemon:
         print("${name} has regained ${points} of health!!".format(name = self.name))
 
     def knock_out(self):
-        self.is_knocked_out = true
+        self.is_knocked_out = True
         if self.health != 0:
             self.health = 0
         print("${self.name} has been knocked out!".format(name = self.name))
     
 
     def revive(self):
-        self.is_knocked_out = false
+        self.is_knocked_out = False
         if self.health == 0:
             self.health = 10
         print("${name} is alive again!!".format(name = self.name))
@@ -110,7 +110,7 @@ class Trainer:
             if self.potions > 0:
                 self.pokemons[self.current_pokemon].gain_health(50)
                 self.potions -= 1
-                print("You used a potion on {name}".format(name = self.pokemon[self.current_pokemon].name))
+                print("You used a potion on {name}".format(name = self.pokemons[self.current_pokemon].name))
             else: 
                 print("You don't have any potions!")
 
